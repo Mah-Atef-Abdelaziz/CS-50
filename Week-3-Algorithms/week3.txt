@@ -1,0 +1,9 @@
+Big O -> Upper Bound
+Omega Ω  -> Lower Bound
+Theta notation Θ  -> When Best case = Worst case
+____________
+#include <string.h>
+
+strcmp -> Compares two strings (Bool -> 0 = Equal)
+ASCII-betical order (Compares the integer values of the letters).
+____________
