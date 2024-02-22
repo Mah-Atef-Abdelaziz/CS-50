@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script>
+        // JavaScript code for checking answers
+        function checkMultipleChoice(answer) {
+            var correctAnswer = 'correct';
+            var userAnswer = answer.getAttribute('data-answer');
+            if (userAnswer === correctAnswer) {
+                answer.style.backgroundColor = 'green';
+                document.getElementById('multiple-choice-answer').innerText = 'Correct!';
+                document.getElementById('multiple-choice-answer').style.color = 'green';
+            } else {
+                answer.style.backgroundColor = 'red';
+                document.getElementById('multiple-choice-answer').innerText = 'Incorrect';
+                document.getElementById('multiple-choice-answer').style.color = 'red';
+            }
+        }
+
+        function checkFreeResponse() {
+            var userInput = document.getElementById('free-response-input').value;
+            var correctAnswer = 'CS50';
+            if (userInput.toLowerCase() === correctAnswer.toLowerCase()) {
+                document.getElementById('free-response-input').style.backgroundColor = 'green';
+                document.getElementById('free-response-answer').innerText = 'Correct!';
+                document.getElementById('free-response-answer').style.color = 'green';
+            } else {
+                document.getElementById('free-response-input').style.backgroundColor = 'red';
+                document.getElementById('free-response-answer').innerText = 'Incorrect';
+                document.getElementById('free-response-answer').style.color = 'red';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Part 1: Multiple Choice</h2>
+            <hr>
+            <h3>What is the capital of France?</h3>
+            <button onclick="checkMultipleChoice(this)" data-answer="incorrect">London</button>
+            <button onclick="checkMultipleChoice(this)" data-answer="incorrect">Berlin</button>
+            <button onclick="checkMultipleChoice(this)" data-answer="correct">Paris</button>
+            <p id="multiple-choice-answer"></p>
+        </div>
+
+        <div class="section">
+            <h2>Part 2: Free Response</h2>
+            <hr>
+            <h3>What course is this project for?</h3>
+            <input type="text" id="free-response-input">
+            <button onclick="checkFreeResponse()">Confirm</button>
+            <p id="free-response-answer"></p>
+        </div>
+    </div>
+</body>
+</html>

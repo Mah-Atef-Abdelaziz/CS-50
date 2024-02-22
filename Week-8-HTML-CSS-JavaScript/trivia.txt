@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Trivia!</title>
+    <style>
+        .correct-answer {
+            background-color: green;
+        }
+        .incorrect-answer {
+            background-color: red;
+        }
+    </style>
+    <script>
+        function checkMultipleChoiceAnswer(selectedOption, correctOption) {
+            var options = document.getElementsByClassName('multiple-choice-option');
+
+            for (var i = 0; i < options.length; i++) {
+                options[i].disabled = true;
+
+                if (i === correctOption) {
+                    options[i].classList.add('correct-answer');
+                    options[i].insertAdjacentHTML('afterend', '<p>Correct!</p>');
+                } else if (i === selectedOption) {
+                    options[i].classList.add('incorrect-answer');
+                    options[i].insertAdjacentHTML('afterend', '<p class="incorrect-text">Incorrect</p>');
+                }
+            }
+        }
+
+        function checkFreeResponseAnswer() {
+            var userInput = document.getElementById('free-response-input').value;
+            var correctAnswer = "c";
+            var textField = document.getElementById('free-response-input');
+
+            if (userInput === correctAnswer) {
+                textField.classList.add('correct-answer');
+                textField.insertAdjacentHTML('afterend', '<p>Correct!</p>');
+            } else {
+                textField.classList.add('incorrect-answer');
+                textField.insertAdjacentHTML('afterend', '<p class="incorrect-text">Incorrect</p>');
+            }
+
+            textField.disabled = true;
+            document.getElementById('confirm-button').disabled = true;
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Part 1: Multiple Choice</h2>
+            <hr>
+            <h3>What is the capital of France?</h3>
+            <button class="multiple-choice-option" onclick="checkMultipleChoiceAnswer(0, 2)">London</button>
+            <button class="multiple-choice-option" onclick="checkMultipleChoiceAnswer(1, 2)">Berlin</button>
+            <button class="multiple-choice-option" onclick="checkMultipleChoiceAnswer(2, 2)">Paris</button>
+        </div>
+
+        <div class="section">
+            <h2>Part 2: Free Response</h2>
+            <hr>
+            <h3>What company developed ChatGPT?</h3>
+            <input type="text" id="free-response-input">
+            <button id="confirm-button" onclick="checkFreeResponseAnswer()">Confirm</button>
+        </div>
+    </div>
+</body>
+</html>

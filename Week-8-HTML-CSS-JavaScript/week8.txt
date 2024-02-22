@@ -1,0 +1,84 @@
+	TCP
+governs how computers keep track of sequences of packets from point A to point B and also multiplex among different services using those port numbers.
+___
+	IP
+a protocol that governs how computers address each other on the internet
+___
+	DNS (Domain Name System)
+converts the Domain name to it's IP Address
+___
+   DHCP (Dynamic Host Configuration Protocol)
+Tells you "what should be your DNS server and router"
+and "tells your PC or Phone what IP your device should use"
+___
+	HTTP (Hypertext Transfer Protocol)
+governs how web browsers and how web servers speak.
+standardizes what goes inside of those envelopes <المغلفات> in order to allow a web browser to request and receive information from a web server.
+standardizes how we're going to get web traffic from point A to point B, from browser to server and back.
+___
+	HTTPS
+secure version of HTTP, were the connection is somehow encrypted, scrambled using very fancy mathematics
+so that it will lock like some random 0 and 1 if someone try to see inside of it.
+___
+https://www.example.com/folder/file.html
+
+ www => host name
+.com => top-level domain
+___
+GET => used to get informations
+POST => used to send informations
+___
+to run the HTML code on a code space use the command => http-server
+_______
+	CSS
+# => id
+. => class
+name of tag => tag
+_________
+	Javascript
+
+to create an autocomplete search box
+
+in file autocomplete.html
+
+<body>
+
+<input autocomplete="off" autofocus placeholder="Query" type="text">
+
+<ul></ul>
+
+<script src="large.js"></script>
+<script>
+
+let input = document.querySelector('input');
+input,addEventListener('keyup', function(event){
+let html = '';
+if (input.value){
+    for(word of WORDS){
+        if(word.startsWith(input.value)){
+	    html += `li>${word}</li>`;
+	}
+    }
+}
+document.querySelector('ul').innerHTML = html;
+});
+______
+to get location of someone
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>getlocation</title>
+</head>
+<body>
+    <script>
+	navigator.getlocation.getCurrentPosition(function(position)){
+	    document.write(position.coords.latitude + ", " + position.coords.longitude);
+	});
+    </script>
+</body>
+</html>
+____
+
+
+
