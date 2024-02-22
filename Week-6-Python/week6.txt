@@ -1,0 +1,75 @@
+	PYTHON
+	------
+input() -> reads string by default
+_____
+	Exceptions
+def get_int(prompt):
+    while True:
+	try:
+	    return int(input(prompt))
+	except ValueError:
+	    pass
+
+
+def main():
+    x = get_int("x: ")
+    y = get_int("y: ")
+
+    print(x + y)
+
+
+main()
+_________________
+from cs50 import get_int
+
+while True:
+    n = get_int("Height: ")
+    if n > 0:
+	break
+
+for i in range(n):
+    print("#")
+_______
+to print ????
+
+print("?" * 4)
+_____________
+for else in python:-
+
+names = ["Carter", "David", "John"]
+
+name = input("Name: ")
+
+for n in names:
+    if name == n:
+	print("Found")
+	break
+else:
+    print("Not found")
+_____________
+	Dictionaries
+people = [
+    {"name": "Carter", "number": "+1-617-1000"},
+    {"name": "David", "number": "+1-617-1020"},
+    {"name": "John", "number": "+1-468-2750"},
+]
+
+name = input("Name: ")
+
+for person in people:
+    if person["name"] == name:
+	number = person["number"]
+	print(f"Found {number}")
+	break
+else:
+    print("Not found")
+
+
+ 
+
+
+
+
+
+
+

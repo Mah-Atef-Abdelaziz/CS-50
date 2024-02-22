@@ -1,0 +1,59 @@
+import csv
+import sys
+
+
+def main():
+    # Check if correct number of command-line arguments provided
+    if len(sys.argv) != 3:
+        print("Usage: python dna.py data.csv sequence.txt")
+        sys.exit(1)
+
+    # Open CSV file and read its contents into memory
+    csv_filename = sys.argv[1]
+    with open(csv_filename) as csv_file:
+        csv_reader = csv.DictReader(csv_file)
+        data = list(csv_reader)
+
+    # Open DNA sequence file and read its contents into memory
+    sequence_filename = sys.argv[2]
+    with open(sequence_filename) as sequence_file:
+        sequence = sequence_file.read()
+
+    # Get list of STRs from CSV file
+    strs = data[0].keys()
+    strs = list(strs)[1:]
+
+    # Compute the longest consecutive repeat of each STR in the DNA sequence
+    str_counts = {}
+    for str in strs:
+        str_counts[str] = longest_match(sequence, str)
+
+    # Compare STR counts with individuals in the CSV file
+    for person in data:
+        if all(int(person[str]) == str_counts[str] for str in strs):
+            print(person['name'])
+            sys.exit(0)
+
+    # If no match found, print "No match"
+    print("No match")
+
+
+def longest_match(sequence, str):
+    """
+    Function to find the longest consecutive repeat of an STR in the DNA sequence.
+    """
+    max_count = 0
+    str_length = len(str)
+    i = 0
+    while i < len(sequence):
+        count = 0
+        while sequence[i:i + str_length] == str:
+            count += 1
+            i += str_length
+        max_count = max(max_count, count)
+        i += 1
+    return max_count
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,31 @@
+# File: sentimental-mario-more/mario.py
+
+def main():
+    height = get_height()
+
+    # Building the half-pyramids
+    for i in range(1, height + 1):
+        # Printing left half-pyramid
+        print(" " * (height - i) + "#" * i, end="")
+
+        # Printing gap
+        print("  ", end="")
+
+        # Printing right half-pyramid
+        print("#" * i)
+
+
+def get_height():
+    while True:
+        try:
+            height = int(input("Height: "))
+            if height >= 1 and height <= 8:
+                return height
+            else:
+                print("Height must be between 1 and 8")
+        except ValueError:
+            print("Please enter a valid integer.")
+
+
+if __name__ == "__main__":
+    main()
