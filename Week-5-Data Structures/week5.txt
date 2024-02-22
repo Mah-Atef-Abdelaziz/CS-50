@@ -1,0 +1,3 @@
+Tries is a tree of arrays
+26 elements, each element represents a letter
+ 
