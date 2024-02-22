@@ -1,0 +1,37 @@
+\0 بيكون في رمز بيعرفني ان ال أرراي حجمه خلص
+__________________
+#include <string.h>
+
+strlen() -> Gets length of the string
+__________________
+ASCII
+
+الفرق بين كل حرف كابيتال او سمال هو 32
+a = 97
+A = 65
+__________________
+#include <ctype.h>
+
+toupper() -> Converts Letter to upper
+__________________
+int main(int argc, string argv[])
+{
+  ....
+}
+
+argc -> number of letters passed to the program
+argc = 1 -> name of program is a word
+
+argv[] -> array of strings
+argv[0] -> name of the program
+__________________
+     Terminal
+عشان أعرف اَخر برنامج عملتله رن رجع كام
+return ...
+$  echo $?
+____
+$ cowsay moo
+$ cowsay -f dragon RAWR
+$ cowsat -f duck quack
+try it yourself ^_^
+__________________
