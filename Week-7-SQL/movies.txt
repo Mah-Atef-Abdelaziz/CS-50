@@ -1,0 +1,127 @@
+1-
+
+SELECT title
+FROM movies
+WHERE year = 2008;
+
+_______
+2-
+
+SELECT birth
+FROM people
+WHERE name = 'Emma Stone';
+
+
+_______
+3-
+
+SELECT title
+FROM movies
+WHERE year >= 2018
+ORDER BY title;
+
+
+_______
+4-
+
+SELECT COUNT(rating)
+FROM ratings
+WHERE rating = 10;
+
+
+_______
+5-
+
+SELECT title, year
+FROM movies
+WHERE title LIKE 'Harry Potter%'
+ORDER BY year;
+
+
+_______
+6-
+
+SELECT AVG(rating) FROM movies
+JOIN ratings ON movies.id = ratings.movie_id
+WHERE year = 2012;
+
+
+_______
+7-
+
+SELECT title, rating FROM movies
+JOIN ratings ON movies.id = ratings.movie_id
+WHERE year = 2010
+ORDER BY rating DESC, title ASC;
+
+
+_______
+8-
+
+SELECT name
+FROM people
+JOIN stars ON people.id = stars.person_id
+JOIN movies ON stars.movie_id = movies.id
+WHERE movies.title = 'Toy Story';
+
+_______
+9-
+
+SELECT DISTINCT name
+FROM people
+JOIN stars ON people.id = stars.person_id
+JOIN movies ON stars.movie_id = movies.id
+WHERE movies.year = 2004
+ORDER BY birth;
+
+
+_______
+10-
+
+SELECT DISTINCT name
+FROM people
+JOIN directors ON directors.person_id = people.id
+JOIN movies ON movies.id = directors.movie_id
+JOIN ratings ON ratings.movie_id = movies.id
+WHERE rating >= 9.0;
+
+
+_______
+11-
+
+SELECT title FROM movies
+JOIN ratings ON ratings.movie_id = movies.id
+JOIN stars ON stars.movie_id = movies.id
+JOIN people ON stars.person_id = people.id
+WHERE people.name = 'Chadwick Boseman'
+ORDER BY ratings.rating DESC
+LIMIT 5;
+
+
+______
+12-
+
+SELECT title
+FROM movies
+JOIN stars AS sc ON movies.id = sc.movie_id
+JOIN stars AS jl ON movies.id = jl.movie_id
+JOIN people AS cooper ON sc.person_id = cooper.id
+JOIN people AS lawrence ON jl.person_id = lawrence.id
+WHERE cooper.name = 'Bradley Cooper'
+  AND lawrence.name = 'Jennifer Lawrence';
+
+______
+13-
+
+SELECT DISTINCT people.name
+FROM people
+JOIN stars ON people.id = stars.person_id
+JOIN movies ON stars.movie_id = movies.id
+WHERE movies.id IN (
+    SELECT movie_id
+    FROM stars
+    JOIN people ON stars.person_id = people.id
+    WHERE people.name = 'Kevin Bacon' AND people.birth = 1958
+) AND people.name != 'Kevin Bacon';
+
+___________

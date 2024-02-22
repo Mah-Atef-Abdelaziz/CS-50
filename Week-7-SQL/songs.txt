@@ -1,0 +1,69 @@
+1-
+
+SELECT name
+FROM songs;
+
+_____
+2-
+
+SELECT name
+FROM songs
+ORDER BY tempo;
+
+
+_____
+3-
+
+SELECT name
+FROM songs
+ORDER BY duration_ms DESC
+LIMIT 5;
+
+_____
+4-
+
+SELECT name
+FROM songs
+WHERE danceability > 0.75
+  AND energy > 0.75
+  AND valence > 0.75;
+
+_____
+5-
+
+SELECT AVG(energy) AS average_energy
+FROM songs;
+
+_____
+6-
+
+SELECT songs.name
+FROM songs
+JOIN artists ON songs.artist_id = artists.id
+WHERE artists.name = 'Post Malone';
+
+_____
+
+7-
+
+SELECT AVG(songs.energy) AS average_energy
+FROM songs
+JOIN artists ON songs.artist_id = artists.id
+WHERE artists.name = 'Drake';
+
+_____
+8-
+
+SELECT name
+FROM songs
+WHERE name LIKE '%feat.%';
+
+_____
+answers-
+
+reflection:Spotify's annual Spotify Wrapped campaign is a testament to their extensive use of data analytics to enhance user experience, provide personalized insights, and drive engagement. The dataset provided gives a glimpse into the kind of analysis Spotify might undertake to create such campaigns and improve their service overall.Personalization and Recommendation Systems:Spotify heavily relies on recommendation algorithms to tailor music suggestions to individual users. By analyzing user behavior, such as song preferences and listening patterns, Spotify can generate accurate recommendations. Attributes like danceability, energy, and valence play crucial roles in understanding user preferences and recommending suitable tracks. The dataset's inclusion of these attributes underscores their importance in Spotify's recommendation systems.Content Curation and Discovery:Curating playlists and promoting music discovery are vital aspects of Spotify's service. The dataset likely aids in identifying trending songs, emerging artists, and popular genres. This information helps Spotify curate playlists, genre-specific hubs, and promotional content, ensuring users discover new music aligned with their tastes. Spotify Wrapped utilizes these insights to highlight users' favorite tracks and artists from the year, enhancing engagement and discovery.Artist Insights and Support:Spotify provides artists with valuable data insights to understand their audience and track performance metrics. Analyzing streaming data allows artists to gauge their popularity, listener demographics, and geographic reach. This information enables artists to optimize their marketing strategies, plan tours, and engage with their fan base more effectively. Spotify's support for artists is evident in its use of data to showcase their achievements and milestones in Spotify Wrapped, fostering a sense of connection between artists and fans.Industry Trends and Partnerships:Spotify's vast dataset enables it to identify broader industry trends and forge strategic partnerships with labels, publishers, and other stakeholders. By analyzing streaming patterns and consumption trends, Spotify can anticipate shifts in musical tastes, identify emerging genres, and capitalize on market opportunities. These insights inform Spotify's business decisions, content licensing agreements, and collaborations with artists and record labels.User Engagement and Retention:Understanding user engagement is critical for Spotify's growth and retention efforts. The dataset provides valuable insights into user behavior, preferences, and satisfaction levels. Spotify analyzes metrics like song duration, tempo, and energy to assess user engagement and refine its platform's features. Additionally, Spotify utilizes data-driven marketing campaigns, loyalty programs, and personalized experiences to enhance user retention and satisfaction.In conclusion, Spotify's utilization of data analytics is instrumental in delivering a personalized and engaging music streaming experience. The dataset provided offers a glimpse into the data-driven strategies employed by Spotify to power features like Spotify Wrapped and continuously improve its service for users and artists alike.
+
+
+__________
+
+
